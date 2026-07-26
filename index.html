@@ -3,9 +3,704 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>music player</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+        .lirik{
+            width: 88%;
+            height: 97vh;
+            margin-top: 1vh;
+            margin-bottom: 2vh;
+            margin-right: 2%;
+            
+            text-align: center;
+        }
+        .utama{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: gray;
+            transition: .4s;
+        }
+        .isi{
+            width: 90%;
+            height: 90vh;
+            border-radius: 30px;
+            border: 2px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-color: lightgray;
+            transition: .4s;
+            color: black;
+            border: 2px solid;
+        }
+        .kanan{
+            width: 15%;
+            height: 90vh;
+            background-color: lightgray;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+        .tengah{
+            width: 75%;
+            height: 90vh;
+            /* background-color: lightgrey; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .kiri{
+            width: 25%;
+            height: 90vh;
+            /* background-color: lightgray; */
+            overflow: scroll;
+            display: flex;
+            }
+        .kiri::-webkit-scrollbar,.ctf-song::-webkit-scrollbar{
+            display: none;
+        }
+        
+        .a{
+            border: 1px solid black;
+            width: 100%;
+        }
+
+        .a:hover{
+
+            height: 3vh;
+            background-color: white;
+            cursor: pointer;
+            color: black;
+        }
+        .b{
+            width: 100%;
+            background-color: aliceblue;
+            border-radius: 0 0 25px 25px;
+        }
+
+        .c{
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .c button{
+            background-color: black;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 10000000000%;
+            border: 0;
+        }
+        .d{
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: end;
+            background-color: aliceblue;
+            border-radius: 25px 25px 0 0;
+        }
+        .e{
+            width: 33%;
+            display: flex;
+            justify-content: space-around;   
+        }
+        .e button,.f button{
+            
+            color: white;
+            width: 35px;
+            height: 35px;
+        }
+        .f{
+            width: 33%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .h{
+            width: 90%;
+            height: 88vh;
+        }
+        .gambar{
+            width: 80%;
+            height: 30vh;
+            background: linear-gradient(90deg, white,white,black, black, black);
+            margin-left: 3vh;
+            display: flex;
+            justify-content:start;
+            align-items: end;
+        }
+        .gamton{
+            background-color: black;
+            color: white;
+            width: 15%;
+            height: 4vh;
+            border: none;
+            border-radius: 50px;
+        }
+        .g2mton{
+            background-color: white;
+            color: black;
+            width: 15%;
+            height: 4vh;
+            border: black 2px solid;
+            border-radius: 50px;
+            margin-left: 2px;
+        }
+        
+        .cp-tengah{
+            width: 93%;
+            height: 90vh;
+        }
+        .tr-end{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 83%;
+            height: 4vh;
+            
+        }
+        .ctf-song{
+            width: 100%;
+            height: 70vh;
+            overflow: scroll;
+        
+        }
+        .but{
+            /* margin-top: 100px; */
+            width: 100%;
+            height: 50vh;
+            display: flex;
+            justify-content: end;
+            align-items: end;
+        }
+        .button{
+            width: 80%;
+            height: 50vh;
+
+        }
+        .butt{
+            margin-top: 10px;
+            width: 100%;
+            height: 5vh;
+            color: gray;
+            background-color: white;
+            border: none;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .button button :hover{
+            background-color: black;
+            color: white;
+        }
+        .butt:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+
+        .serch{
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+        .serch textarea{
+            width: 70%;
+            border-radius: 0 20px 20px 0;
+            border: none;
+            height: 4.5vh;
+        }
+        .serch button{
+            width: 5%;
+            height: 4.5vh;
+            border-radius: 20px 0 0 20px;
+            border: none;
+            background-color: #fff;
+        }
+        .ab:hover{
+            cursor: pointer;
+        }
+        .h1{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        #kromer{
+            font-size: large;
+            height: 4.5vh;
+            border: none;
+            width: 55vh;
+            border-radius: 0 30px 30px 0;
+        }
+        .table{
+            width: 100%;
+        }
+        .num:hover{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .lop{
+            background-color: black;
+            color: white;
+            border: 100px solid white;
+            width: 50px;
+            height: 50px;
+            border-radius: 10000000000%;
+            border: 0;
+        }
+        #hindia{
+            display: none;
+        }
+        #repet{
+            background-color: black;
+            border: 2px solid black;
+        }
+        .input{
+            visibility: hidden;
+        }
+        .label{
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            background-color: gray;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .circle{
+            width: 34px;
+            background-color: #fff;
+            height: 34px;
+            border-radius: 50%;
+            top: 3px;
+            position: absolute;
+            left: 3px;
+            animation: toggleOff 0.4s linear forwards;
+        }
+        .input:checked + .label{
+            background-color: gray;
+        }
+        .input:checked + .label .circle{
+            animation: toggleOn 0.4s linear forwards;
+            background-color: black;
+        }
+        @keyframes toggleOn{
+            0%{
+                transform: translateX(0);
+            }100%{
+                transform: translateX(40px);
+            }
+        }
+        @keyframes toggleOff{
+            0%{
+                transform: translateX(40px);
+            }100%{
+                transform: translateX(0);
+            }
+        }
+.calc{
+    width: 100%;
+    height: 10vh;
+    border-radius: 10px;
+    border: 1px solid;
+    overflow: hidden;
+}
+.calc-input{
+    width: 100%;
+    height: 5vh;
+}
+
+    </style>
+    <script src="c:\Users\USER\Documents\gabut\codes\using mathrandom.js"></script>
 </head>
 <body>
-    <a href="idk/idk.html">click here</a>
+    
+    <div class="utama">
+        <div class="isi">
+            <div class="tengah">
+                <div class="cp-tengah">
+                    <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
+                    
+            
+    
+    <div class="ctf-song">
+    <table class="table" id="lagu">
+        <tr>
+            <th>#</th>
+            <th>title</th>
+            <th>artist</th>
+            <th>time</th>
+        </tr>
+        <tbody id="table-body"></tbody>
+    </table>
+
+</div>
+    <div class="d">
+    <div class="c">
+    <button class="ab" onclick="prevSong()">⏮</button>
+    <button class="ab"   id="a" onclick="pauseSong()">▶</button>
+    <button class="ab" onclick="nextSong()">⏭</button>
+    <button class="ab" onclick="repet()" id="repet">🔁</button>
+    
+    </div>
+    </div>
+            
+            
+        <audio src="" id="audioplayer" class="b" controls></audio>
+        </div>
+        </div>
+    
+
+
+    <div class="kiri">
+        <div class="lirik">
+        stuff
+        <hr>
+        <p>loop</p>
+        <input id="start" type="number" placeholder="start">
+        <input id="end" type="number" placeholder="end">
+        <br>
+        <button class="lop ab" id="looop" onclick="loop()">loop</button>
+        <hr>
+        <p>calculator</p>
+
+        <div class="calc">
+            <div class="calc-input" id="calc-in"></div>
+            <hr>
+            <div class="calc-input" id="calc-out"></div>
+        </div>
+        <input type="checkbox" id="dark-mode" class="input">
+    <label for="dark-mode" class="label">
+        <div class="circle"></div>
+    </div>
+</div>
+            </div>
+    </div>
+</div>
+<audio src="" id="soundboard"></audio>
+
+    <script>
+        const calc_in = document.getElementById('calc-in')
+        const calc_out = document.getElementById('calc-out')
+        const lirik = document.getElementById('lirik')
+        const audioplayer = document.getElementById('audioplayer')
+        const a = document.getElementById('a')
+        const blacky = document.querySelector('#lagu')
+        const hindi = document.getElementById('repet')
+        const soundboard = document.getElementById('soundboard')
+        const sounds = [
+            {src: 'youre-taking-too-long.mp3'},
+        ]
+        const lagu =  [
+            {src: '3. My Castle Town (DELTARUNE Chapter 2 Soundtrack) - Toby Fox.mp3', name:"My Castle Town"},
+            {src: 'Hip Shop.mp3', name:"Hip Shop"},
+            {src: '071. Undertale (UNDERTALE Soundtrack) - Toby Fox.mp3', name:"Undertale"},
+            {src: 'OMORI OST - 005 By Your Side..mp3', name:"By Your Side"},
+            {src: 'OMORI OST - 013 A Home For Flowers (Tulip).mp3', name:"A Home For Flowers (Tulip)"},
+            {src: 'OMORI OST - 016 A Place By A Lake.mp3', name:"A Place By The Lake"},
+            {src: 'OMORI OST - 021 Sugar Star Planetarium.mp3', name:"Sugar Star Planetarium"},
+            {src: 'OMORI OST - 044 Where We Used To Play.mp3', name:"Where We Used To Play"},
+            {src: 'OMORI OST - 061 See You Tomorrow.mp3', name:"See You Tomorrow"},
+        ]
+        const looop = document.getElementById('looop')
+        let soundindex = 0
+        let laguindex = null
+        if(audioplayer.paused){
+        a.innerText ="▶";
+        }else if(audioplayer.played){
+          a.innerText ='⏸'  
+        }
+        lop = false
+        function loop(){
+            if(lop){
+                lop = false
+                looop.style.backgroundColor = "black";
+                looop.style.color = "white";
+            }else{
+                lop = true
+                looop.style.backgroundColor = "white";
+                looop.style.color = "black";
+            }
+        }
+        const inputEl = document.querySelector('.input')
+        const bodyEl = document.querySelector('.isi')
+        const utama = document.querySelector('.utama')
+function createRow(no, name, singer, long) {
+ const tr = document.createElement('tr');
+ tr.className = 'a';
+ tr.setAttribute('onclick', `loadsong(${no-1})`);
+
+ const td1 = document.createElement('td');
+ td1.className = 'num';
+ td1.style.display = 'flex';
+ td1.style.justifyContent = 'center';
+ td1.innerText = no;
+
+ const td2 = document.createElement('td');
+ td2.innerText = name;
+ const td3 = document.createElement('td');
+ td3.innerText = singer;
+ const td4 = document.createElement('td');
+ td4.innerText = long;
+
+
+ 
+ tr.append(td1, td2, td3, td4);
+ return tr; 
+ }
+
+ const tbody = document.getElementById('table-body');
+ for (let i = 1; i <= lagu.length; i++) {
+ tbody.appendChild(createRow(i, lagu[i-1].name, lagu[i-1].singer, lagu[i-1].long));
+ }
+ 
+
+        function updateBody(){
+            if(bodyEl.style.background != 'black'){
+                bodyEl.style.background = 'black'
+                bodyEl.style.color = 'white'
+                bodyEl.style.border = '2px solid white'
+                utama.style.background = 'black'
+                looop.style.border = "2px solid white"
+                inputEl.checked = true
+                
+            }else{
+                bodyEl.style.background = 'lightgray'
+                bodyEl.style.color = 'black'
+                bodyEl.style.border = '2px solid black'
+                utama.style.background = 'gray'
+                looop.style.border = "none";
+                inputEl.checked = false
+            }
+        }
+        inputEl.addEventListener('input', () =>{
+            updateBody();
+        });
+
+        function AddStuffToCalc(a){
+            calc_in.innerText += a
+        }
+        function plusseconds(time){
+            if(audioplayer.currentTime + time < audioplayer.duration){
+                audioplayer.currentTime += time
+            }else{
+                audioplayer.currentTime = audioplayer.duration
+            }
+        }
+
+        function minseconds(time){
+            if(audioplayer.currentTime - time > 0){
+                audioplayer.currentTime -= time
+            }else{
+                audioplayer.currentTime = 0
+            }
+        }
+
+        function randomlagu(){
+            return Math.floor(Math.random() * (lagu.length - 0 + 1)) + 0;
+        }
+        // function load(int){
+        //     pl = int
+        //     if(pl == 0){
+        //         blacky.style.display = 1
+        //         hindia.style.display = none
+        //     }
+        //     else{
+        //         blacky.style.display = none
+        //         hindia.style.display = 1
+        //     }
+        // }
+        var repeat = false
+        function repet(){
+            if(repeat){
+                repeat = false
+                hindi.style.backgroundColor = "black";
+        }else{
+            repeat = true
+            hindi.style.backgroundColor = "white";
+        }
+        }
+        function loadsong(index){
+            laguindex = index;
+            audioplayer.pause();
+            // if(playlist == "hindia"){
+            //     audioplayer.src = hindia[index].src
+            // }
+            // else{
+                audioplayer.src = lagu[index].src;
+                // lirik.innerText = lagu[index].lirik
+            // }
+            audioplayer.load();
+            audioplayer.play();
+            a.innerText = '⏸'
+        }
+        function loadsound(index){
+            soundboard.pause();
+            soundboard.src = sounds[index].src;
+            soundboard.load();
+            soundboard.play();
+        }
+        function pauseSong(){
+            if (audioplayer.paused && laguindex != null){
+                audioplayer.play();
+                a.innerText = '⏸'
+            
+            }else if(laguindex == null){
+                loadsong(randomlagu())
+            }else{
+                audioplayer.pause()
+                a.innerText ="▶";
+            }
+        }
+        function checkRepeat(){
+        const start = parseInt(document.getElementById('start').value)
+        const end = parseInt(document.getElementById('end').value)
+            if (repeat){
+                audioplayer.play()
+            }
+            else if(lop && laguindex == end-1){
+                    laguindex = start - 1
+                    pilihlagu(laguindex)
+                }
+            else{
+            nextSong()    
+        }
+    }
+        function nextSong(){
+            laguindex = (laguindex + 1 ) %lagu.length;
+            loadsong(laguindex);
+        }
+        function prevSong(){
+
+            laguindex = (laguindex - 1 + lagu.length) %lagu.length;
+            loadsong(laguindex);
+            // }
+        }
+        function pilihlagu(index){
+            loadsong(index)
+            var playlist = null
+        }
+        function pilihlag(index){
+            var playlist = 'hindia'
+            loadsong(index)
+
+        }
+        // audioplayer.addEventListener('ended',
+        //     if(index)
+        // )
+        document.addEventListener('keydown', (event) => {
+            switch(event.key){
+                case " ":
+                    pauseSong();
+                    break;
+                case "ArrowLeft":
+                    minseconds(5);
+                    break;
+                case "ArrowRight":
+                    plusseconds(5);
+                    break;
+                case "]":
+                    loadsound(0);
+                    break;
+                case "r":
+                    repet();
+                    break;
+                case "l":
+                    plusseconds(10);
+                    break;
+                case "j":
+                    minseconds(10);
+                    break;
+                case "1":
+                    AddStuffToCalc("1");
+                    break;
+                case "2":
+                    AddStuffToCalc("2");
+                    break;
+                case "3":
+                    AddStuffToCalc("3");
+                    break;
+                case "4":
+                    AddStuffToCalc("4");
+                    break;
+                case "5":
+                    AddStuffToCalc("5");
+                    break;
+                case "6":
+                    AddStuffToCalc("6");
+                    break;
+                case "7":
+                    AddStuffToCalc("7");
+                    break;
+                case "8":
+                    AddStuffToCalc("8");
+                    break;
+                case "9":
+                    AddStuffToCalc("9");
+                    break;
+                case "0":
+                    AddStuffToCalc("0");
+                    break;
+                case "+":
+                    AddStuffToCalc(" + ");
+                    break;
+                case "-":
+                    AddStuffToCalc(" - ");
+                    break;
+                case "*":
+                    AddStuffToCalc(" * ");
+                    break;
+                case "/":
+                    AddStuffToCalc(" / ");
+                    break;
+                case ".":
+                    AddStuffToCalc(".");
+                    break;
+                case "(":
+                    AddStuffToCalc("(");
+                    break;
+                case ")":
+                    AddStuffToCalc(")");
+                    break;
+                case "c":
+                    calc_in.innerText = "";
+                    break;
+                case "<":
+                    prevSong();
+                    break;
+                case ">":
+                    nextSong();
+                    break;
+                case "Backspace":
+                    calc_in.innerText = calc_in.innerText.slice(0,-1);
+                    break;
+                case "d":
+                    updateBody();
+                    break;
+                case "=":
+                    try {
+                        calc_out.innerText = parseFloat(eval(calc_in.innerText));
+                    } catch (error) {
+                        calc_out.innerText = "Error"
+                    }
+                    calc_in.innerText = "";
+                    break;
+            }
+        });
+        audioplayer.addEventListener('ended',checkRepeat)
+    </script>
+    </div>
+</div>
 </body>
 </html>
