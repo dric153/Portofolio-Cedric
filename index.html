@@ -346,15 +346,6 @@
     </table>
 
 </div>
-    <div class="d">
-    <div class="c">
-    <button class="ab" onclick="prevSong()">⏮</button>
-    <button class="ab"   id="a" onclick="pauseSong()">▶</button>
-    <button class="ab" onclick="nextSong()">⏭</button>
-    <button class="ab" onclick="repet()" id="repet">🔁</button>
-    
-    </div>
-    </div>
             
             
         <audio src="Hip Shop.mp3" id="audioplayer" class="b" controls></audio>
@@ -416,6 +407,7 @@
         const looop = document.getElementById('looop')
         let soundindex = 0
         let laguindex = null
+        audioplayer.play()
         if(audioplayer.paused){
         a.innerText ="▶";
         }else if(audioplayer.played){
