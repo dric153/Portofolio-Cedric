@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>music player</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+        .lirik{
+            width: 88%;
+            height: 97vh;
+            margin-top: 1vh;
+            margin-bottom: 2vh;
+            margin-right: 2%;
+            
+            text-align: center;
+        }
+        .utama{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: gray;
+            transition: .4s;
+        }
+        .isi{
+            width: 90%;
+            height: 90vh;
+            border-radius: 30px;
+            border: 2px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-color: lightgray;
+            transition: .4s;
+            color: black;
+            border: 2px solid;
+        }
+        .kanan{
+            width: 15%;
+            height: 90vh;
+            background-color: lightgray;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+        .tengah{
+            width: 75%;
+            height: 90vh;
+            /* background-color: lightgrey; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .kiri{
+            width: 25%;
+            height: 90vh;
+            /* background-color: lightgray; */
+            overflow: scroll;
+            display: flex;
+            }
+        .kiri::-webkit-scrollbar,.ctf-song::-webkit-scrollbar{
+            display: none;
+        }
+        
+        .a{
+            border: 1px solid black;
+            width: 100%;
+        }
+
+        .a:hover{
+
+            height: 3vh;
+            background-color: white;
+            cursor: pointer;
+            color: black;
+        }
+        .b{
+            width: 100%;
+            background-color: aliceblue;
+            border-radius: 0 0 25px 25px;
+        }
+
+        .c{
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .c button{
+            background-color: black;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 10000000000%;
+            border: 0;
+        }
+        .d{
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: end;
+            background-color: aliceblue;
+            border-radius: 25px 25px 0 0;
+        }
+        .e{
+            width: 33%;
+            display: flex;
+            justify-content: space-around;   
+        }
+        .e button,.f button{
+            
+            color: white;
+            width: 35px;
+            height: 35px;
+        }
+        .f{
+            width: 33%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .h{
+            width: 90%;
+            height: 88vh;
+        }
+        .gambar{
+            width: 80%;
+            height: 30vh;
+            background: linear-gradient(90deg, white,white,black, black, black);
+            margin-left: 3vh;
+            display: flex;
+            justify-content:start;
+            align-items: end;
+        }
+        .gamton{
+            background-color: black;
+            color: white;
+            width: 15%;
+            height: 4vh;
+            border: none;
+            border-radius: 50px;
+        }
+        .g2mton{
+            background-color: white;
+            color: black;
+            width: 15%;
+            height: 4vh;
+            border: black 2px solid;
+            border-radius: 50px;
+            margin-left: 2px;
+        }
+        
+        .cp-tengah{
+            width: 93%;
+            height: 90vh;
+        }
+        .tr-end{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 83%;
+            height: 4vh;
+            
+        }
+        .ctf-song{
+            width: 100%;
+            height: 70vh;
+            overflow: scroll;
+        
+        }
+        .but{
+            /* margin-top: 100px; */
+            width: 100%;
+            height: 50vh;
+            display: flex;
+            justify-content: end;
+            align-items: end;
+        }
+        .button{
+            width: 80%;
+            height: 50vh;
+
+        }
+        .butt{
+            margin-top: 10px;
+            width: 100%;
+            height: 5vh;
+            color: gray;
+            background-color: white;
+            border: none;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .button button :hover{
+            background-color: black;
+            color: white;
+        }
+        .butt:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+
+        .serch{
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+        .serch textarea{
+            width: 70%;
+            border-radius: 0 20px 20px 0;
+            border: none;
+            height: 4.5vh;
+        }
+        .serch button{
+            width: 5%;
+            height: 4.5vh;
+            border-radius: 20px 0 0 20px;
+            border: none;
+            background-color: #fff;
+        }
+        .ab:hover{
+            cursor: pointer;
+        }
+        .h1{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        #kromer{
+            font-size: large;
+            height: 4.5vh;
+            border: none;
+            width: 55vh;
+            border-radius: 0 30px 30px 0;
+        }
+        .table{
+            width: 100%;
+        }
+        .num:hover{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .lop{
+            background-color: black;
+            color: white;
+            border: 100px solid white;
+            width: 50px;
+            height: 50px;
+            border-radius: 10000000000%;
+            border: 0;
+        }
+        #hindia{
+            display: none;
+        }
+        #repet{
+            background-color: black;
+            border: 2px solid black;
+        }
+        .input{
+            visibility: hidden;
+        }
+        .label{
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            background-color: gray;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .circle{
+            width: 34px;
+            background-color: #fff;
+            height: 34px;
+            border-radius: 50%;
+            top: 3px;
+            position: absolute;
+            left: 3px;
+            animation: toggleOff 0.4s linear forwards;
+        }
+        .input:checked + .label{
+            background-color: gray;
+        }
+        .input:checked + .label .circle{
+            animation: toggleOn 0.4s linear forwards;
+            background-color: black;
+        }
+        @keyframes toggleOn{
+            0%{
+                transform: translateX(0);
+            }100%{
+                transform: translateX(40px);
+            }
+        }
+        @keyframes toggleOff{
+            0%{
+                transform: translateX(40px);
+            }100%{
+                transform: translateX(0);
+            }
+        }
+.calc{
+    width: 100%;
+    height: 10vh;
+    border-radius: 10px;
+    border: 1px solid;
+    overflow: hidden;
+}
+.calc-input{
+    width: 100%;
+    height: 5vh;
+}
+
+    </style>
+    <script src="c:\Users\USER\Documents\gabut\codes\using mathrandom.js"></script>
+</head>
+<body>
+    
+    <div class="utama">
+        <div class="isi">
+            <div class="tengah">
+                <div class="cp-tengah">
+                    <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
+                    
+            
+    
+    <div class="ctf-song">
+    <table class="table" id="lagu">
+        <tr>
+            <th>#</th>
+            <th>title</th>
+            <th>artist</th>
+            <th>time</th>
+        </tr>
+        <tbody id="table-body"></tbody>
+    </table>
+
+</div>
+    <div class="d">
+    <div class="c">
+    <button class="ab" onclick="prevSong()">⏮</button>
+    <button class="ab"   id="a" onclick="pauseSong()">▶</button>
+    <button class="ab" onclick="nextSong()">⏭</button>
+    <button class="ab" onclick="repet()" id="repet">🔁</button>
+    
+    </div>
+    </div>
+            
+            
+        <audio src="" id="audioplayer" class="b" controls></audio>
+        </div>
+        </div>
+    
+
+
+    <div class="kiri">
+        <div class="lirik">
+        stuff
+        <hr>
+        <p>loop</p>
+        <input id="start" type="number" placeholder="start">
+        <input id="end" type="number" placeholder="end">
+        <br>
+        <button class="lop ab" id="looop" onclick="loop()">loop</button>
+        <hr>
+        <p>calculator</p>
+
+        <div class="calc">
+            <div class="calc-input" id="calc-in"></div>
+            <hr>
+            <div class="calc-input" id="calc-out"></div>
+        </div>
+        <input type="checkbox" id="dark-mode" class="input">
+    <label for="dark-mode" class="label">
+        <div class="circle"></div>
+    </div>
+</div>
+            </div>
+    </div>
+</div>
+<audio src="" id="soundboard"></audio>
+
+    <script>
+            const calc_in = document.getElementById('calc-in')
+            const calc_out = document.getElementById('calc-out')
+            const lirik = document.getElementById('lirik')
+            const audioplayer = document.getElementById('audioplayer')
+            const a = document.getElementById('a')
+            const blacky = document.querySelector('#lagu')
+            const hindi = document.getElementById('repet')
+            const soundboard = document.getElementById('soundboard')
+            const sounds = [
+                {src: 'youre-taking-too-long.mp3'},
+            ]
+            const lagu =  [
+
+                {src: 'medic!-valve-tf2.mp3', name:"Medic!", singer:"Valve", long:"2:34"},
+
+                {src: 'evakuasi-hindia-menaridenganbayangan.mp3', name:"Evakuasi", singer:"Hindia", long:"3:26", lirik:'Aku hanya ingin ketenangan Bukan rumah, uang, atau ketenaran Aku hanya butuh ketenangan Ia sangat jauh, hanya angan-angan Aku hanya ingin ketenangan Tanpa kabar panggilan dan pertemuan Aku hanya butuh ketenangan Menghilangkan diri dari keramaian Seribu Tuhan, ini berat Bangun, berpura menjadi kuat Sungguh, semua ini bom waktu Memikul ceritamu, memikul salahku Aku bukan objek validasi Jauhkan diriku dari foto selfie Aku bukan objek imitasi Jangan pakai fotoku di akun pribadi Kau tak akan pernah, mengenaliku Berbicara seakan kau tahu diriku Ku mendoakanmu dari jauh Tak perlu mengirim pesan di ulang tahunmu Seribu Tuhan, ini berat Bangun, berpura menjadi kuat Sungguh, semua ini bom waktu Memikul ceritamu, memikul salahku Sekarang ku pergi, anggap aku mati Selamatkan diri, oh evakuasi Jangan cari aku Siang hari, sore nanti, malam ini Ku menari dengan bayangan diri sendiri Sekarang ku pergi, anggap aku mati Selamatkan diri, oh evakuasi Jangan cari aku Siang hari, sore nanti, malam ini Ku menari dengan bayangan diri sendiri Aku hanya butuh ketenangan Dia sangat jauh, hanya angan-angan Aku hanya butuh ketenangan'},
+
+                {src: 'evaluasi-hindia-menaridenganbayangan.mp3', name:"Evaluasi", singer:"Hindia", long:"3:22", lirik:'Yang tak bisa terobati Biarlah Mengering sendiri Menghias tubuh dan Yang mengevaluasi Ragamu Hanya kau sendiri Mereka tak mampu Melewat yang telah kau lewati Tiap berganti hari Rintangan yang kau hadapi Masalah yang mengeruh Perasaan yang rapuh Ini belum separuhnya Biasa saja Kamu tak apa Yang selalu ingin ambil peran Hanya berlomba menjadi lebih Sedih dari dirimu Muak dikesampingkan Disamakan Hatimu terluka, sempurna Masalah yang mengeruh Perasaan yang rapuh Ini belum separuhnya Biasa saja Kamu tak apa Perjalanan yang jauh Kau bangun untuk bertaruh Hari belum selesai Biasa saja Kamu tak apa Bilas muka, gosok gigi, evaluasi Tidur sejenak menemui esok pagi Walau pedih ku bersamamu kali ini Ku masih ingin melihatmu esok hari Bilas muka, gosok gigi, evaluasi Tidur sejenak menemui esok pagi Walau pedih ku bersamamu kali ini Ku masih ingin melihatmu esok hari Bilas muka, gosok gigi, evaluasi Tidur sejenak menemui esok pagi Walau pedih ku bersamamu kali ini Ku masih ingin melihatmu esok hari'},
+
+                {src: 'MicrowavePopcorn-boburnham-inside.mp3', name:"Microwave Popcorn", singer:"Bo Burnham", long:"2:27", lirik:"Could you turn my headphones? Turn up my, or Im the only one in here, so, Im gonna turn up my own headphones For myself, thank you, youre welcome Tryna make microwave popcorn in a microwave I am on that wave, I am on that wave Tryna make microwave popcorn in a microwave I take the packet out the plastic (Takin' out the plastic, brrt) Reading the directions on the back of the package (Ooh) Orville Redenbacher, you're a savage (You a savage) So let's get crackin' (Tryna make microwave, ayy) I put the packet on the glass (What glass?) The little glass dish in the microwave (Got it) I close the door (Which door?) The door to the microwave (What is wrong with you?) You follow all the rules when you're a studious guy (Step one) Insert the packet, set the power to high Cook for one and a half minutes to two and a half minutes (Mm, kind of a wide range) Tryna make microwave popcorn in a microwave (Brrt) I am on that wave, I am on that wave Tryna make microwave popcorn in a microwave The popcorn's done (Thank God) I open up the door, I take it out Ah, goddamn, that's hot, super hot Makes sense (I burnt my fingies) I open up the packet (The packet) It smells smoky and the kernels are black, shit (No) I burned it (No), I burned it (For real?) Yes, for real, do you think you're helping by saying all this? (Tryna make microwave) I'm givin' up (I'm done cookin' popcorn) I'ma eat a bag of Skinny Pop (Bitch, I be hot) I look back at the microwave, wait a minute How'd I miss this button? There's a button and the button says, Popcorn How'd I miss this button? There's a button and the button says, Popcorn (Oh no) On the microwave (There was a button that said popcorn?) I am on that wave, I am on that wave (I shoulda hit that button) Tryna make microwave popcorn (Tryna make microwave) In a microwave (Guys, stop) I am on that wave, I am on that wave (Everyone's talking at the same time, shut up, shut up) Tryna make microwave popcorn"},
+
+                {src: 'soldierofdance.mp3', name:"Soldier Of Dance", singer:"Valve", long:"1:09", lirik:'tidak ada lirik'},
+                {src: 'mataair-hindia-menaridenganbayangan.mp3', name:"Mata Air", singer:"Hindia", long:"3:46", lirik:"Ah, ah-ah, ah-ahAh-ah-ah, ah-ah, ah-ah Menghabiskan gaji untuk diriku sendiri Membeli satu tiket film terkini Memesan yang cukup hanya untuk satu porsi Menyanyikan Kunto Aji di tengah muda-mudi Semua jatuh bangunmu, hal yang biasa Angan dan pertanyaan, waktu yang menjawabnya Berikan tenggat waktu, bersedihlah secukupnya Rayakan perasaanmu sebagai manusia Jika kau pernah tersakiti, angkat tangan Jika kau pernah menyakiti, angkat tangan Jika kau pernah bahagia, angkat tangan Jika kau pernah kecewa, angkat tangan Jika kau pernah tersakiti, angkat tangan Jika kau pernah menyakiti, angkat tangan Jika kau pernah bahagia, angkat tangan Jika kau pernah kecewa, angkat tangan Hidup bukan untuk saling mendahului Bayangan yang diciptakan oleh mentari Ada kar'na matahari bermaksud terpuji Untukmu, cintai diri sendiri hari ini Jika kau pernah tersakiti, angkat tangan Jika kau pernah menyakiti, angkat tangan (angkat tangan) Jika kau pernah bahagia, angkat tangan (uh-uh-uh) Jika kau pernah kecewa, angkat tangan (Jika kau pernah tersakiti) jika kau pernah tersakiti, angkat tangan Jika kau pernah menyakiti, angkat tangan (angkat tanganmu) Jika kau pernah bahagia, angkat tangan (angkat tangan) Jika kau pernah kecewa, angkat tangan Mata airmu ada di sini (hey, angkat tangan) Mata airmu, diri sendiri (angkat tangan) Temukan makna hidupmu sendiri (angkat tangan) Menarilah dengan bayangan diri sendiri (jika pernah kecewa, angkat tangan) Mata airmu ada di sini (dan jika kau pernah bahagia, angkat tangan) Mata airmu, diri sendiri (jika kau pernah tersakiti, angkat tangan) Temukan makna hidupmu sendiri (dan jika kau pernah menyakiti, angkat tangan) Menarilah dengan bayangan diri sendiri Mata airmu ada di sini (mata airmu ada di sini) Mata airmu, diri sendiri Temukan makna hidupmu sendiri Menarilah dengan bayangan diri sendiri (mata airmu) Mata airmu (mata airmu) ada di sini (ada di sini) Mata airmu (mata airmu), diri sendiri (diri sendiri) Temukan makna (mata airmu) hidupmu sendiri (ada di sini) Menarilah dengan (mata airmu) bayangan diri sendiri"},
+
+                {src: 'jammakansiang-hindia-menaridenganbayangan.mp3', name:"Jam Makan Siang", singer:"Hindia", long:"4:42", lirik:"Kita manusiaMahluk mulia Kita butuh uang Untuk gali liang Tentang angan-anganku Di jam makan siang Saat semua orang berjuang Di ladang yang gersang Terus m'rasa kurang Haus yang mengiang Siapa yang menang Sosial media jual beli surga Tak ada prospeknya Tak ada uangnya Tanah yang melangit Bumi yang sakit Cukup dirimu yang tau jalannya Boleh berkarya asal hobi saja Cita-cita cinta dipatah keluarga Ketika norma peradatan Terpilih sebagai alasan Semua berkata, Mimpi sewajarnya Tentang angan-anganku Di jam makan siang Saat semua orang berjuang Di ladang yang gersang Terus m'rasa kurang Haus yang mengiang Siapa yang menang Ku di antara gemuruh ragu yang menggetarkan jiwa Seorang manusia yang sedang memimpikan mimpinya Di atas awan yang menderu Melamun, dia belum merasa saatnya terbangun Sedang berlayar tinggi-tingginya Di sini tempatku berlabuh Jalan yang kutempuh dari dulu Satu-satunya yang ku tau Aku cuma bisa jadi aku Hidup tak semudah membalik telapak tangan Tak ada jalan singkat 'tuk menuai yang kau tanam Sadari yang kau cari itu butuh dirancang Kecuali dietmu hanya makanan instan Tentang angan-anganku Di jam makan siang Saat semua orang berjuang Di ladang yang gersang Terus m'rasa kurang Haus yang mengiang Siapa yang menang Kita manusia Mahluk mulia Kita butuh uang Untuk gali liang Kita manusia Mahluk mulia Kita butuh uang Untuk gali liang"},
+
+                {src: 'kitakesana-hindia-lagipulahidupakanberakhir.mp3', name:"Kita Ke Sana", singer:"Hindia", long:"4:42", lirik:"Rayakan hari iniBesok sisa sengsara Belum pulang, kau pun di sini Temani diriku Kita bersandiwara Bicara tak semestinya Walau kita tahu nyatanya Semua tak baik saja Ada masanya kita Mencuri ruang dan waktu Walau pasti berlalu Biarkan saja Kita ke sana Selagi masih bisa bersama Bersama Semuanya sementara Kita di ujung c'rita Untuk lima menit, coba kau Mengambil alih dunia Ada masanya kita Mencuri ruang dan waktu Walau pasti berlalu Biarkan saja Kita ke sana Selagi masih bisa bersama Ada masanya kita Mencuri ruang dan waktu Walau pasti berlalu Biarkan saja Kita ke sana (kita ke sana) Selama-lamanya (s'lama-lamanya) Selagi masih bisa bersama Bersama, oh-oh-oh Bersama Bersama, oh-oh-oh-oh"},
+
+                {src: 'virus-beethoven-unknown.mp3', name:"Virus", singer:"Beethoven", long:"3:40"},
+
+                {src: 'loseyourself-eminem-marshallmatherslp.mp3',name:"Lose Yourself", singer:"Eminem", long:"5:20", lirik:"Look, if you had one shot, or one opportunityTo seize everything you ever wanted, in one moment Would you capture it, or just let it slip? Yo! His palms are sweaty, knees weak, arms are heavy There's vomit on his sweater already: Mom's spaghetti He's nervous, but on the surface he looks calm and ready To drop bombs, but he keeps on forgetting What he wrote down, the whole crowd goes so loud He opens his mouth, but the words won't come out He's choking, how? Everybody's joking now The clock's run out, time's up, over, blaow! Snap back to reality, ope there goes gravity, ope There goes Rabbit, he choked, he's so mad but he won't Give up that easy, no, he won't have it, he knows His whole back's to these ropes, it don't matter, he's dope He knows that but he's broke, he's so stagnant, he knows When he goes back to this mobile home, that's when it's Back to the lab again yo, this whole rhapsody Better go capture this moment and hope it don't pass him, and You better lose yourself in the music The moment, you own it, you better never let it go You only get one shot, do not miss your chance to blow This opportunity comes once in a lifetime, yo You better lose yourself in the music The moment, you own it, you better never let it go You only get one shot, do not miss your chance to blow This opportunity comes once in a lifetime, yo You better… His soul's escaping through this hole that is gaping This world is mine for the taking, make me king As we move toward a New World Order A normal life is boring; but superstardom's Close to post-mortem, it only grows harder Homie grows hotter, he blows, it's all over These hoes is all on him, coast-to-coast shows He's known as the Globetrotter, lonely roads God only knows, he's grown farther from home, he's no father He goes home and barely knows his own daughter But hold your nose, 'cause here goes the cold water These hoes don't want him no mo', he's cold product They moved on to the next schmoe who flows He nose-dove and sold nada, and so the soap opera Is told, it unfolds, I suppose it's old, partner But the beat goes on: da da dum da dum da da da da You better lose yourself in the music The moment, you own it, you better never let it go You only get one shot, do not miss your chance to blow This opportunity comes once in a lifetime, yo You better lose yourself in the music The moment, you own it, you better never let it go You only get one shot, do not miss your chance to blow This opportunity comes once in a lifetime, yo You better… No more games, I'ma change what you call rage Tear this motherfuckin' roof off like two dogs caged I was playin' in the beginning, the mood all changed I've been chewed up and spit out and booed off stage But I kept rhymin' and stepped right in the next cypher Best believe somebody's payin' the Pied Piper All the pain inside amplified by the Fact that I can't get by with my 9-to-5 And I can't provide the right type of life for my family 'Cause man, these goddamn food stamps don't buy diapers And there's no movie, there's no Mekhi Phifer, this is my life And these times are so hard, and it's gettin' even harder Tryna feed and water my seed, plus teeter-totter Caught up between bein' a father and a prima donna Baby mama drama, screamin' on her, too much for me to wanna Stay in one spot, another day of monotony's Gotten me to the point I'm like a snail, I've got To formulate a plot or end up in jail or shot Success is my only motherfuckin' option, failure's not Mom, I love you, but this trailer's got To go; I cannot grow old in Salem's Lot So here I go, it's my shot: feet, fail me not This may be the only opportunity that I gotYou better lose yourself in the music The moment, you own it, you better never let it go (go) You only get one shot, do not miss your chance to blow This opportunity comes once in a lifetime, yo You better lose yourself in the music The moment, you own it, you better never let it go (go) You only get one shot, do not miss your chance to blow This opportunity comes once in a lifetime, yo You better… You can do anything you set your mind to, man "},
+
+                {src: "BIG_Shot.mp3", name:"Big Shot", singer:"Toby Fox", long:"2:26", lirik:"none"},
+
+                {src: "blckknf.mp3", name:"Black Knife", singer:"Toby Fox", long:"2:01", lirik:"none"},
+
+                {src: "HOJ.mp3", name:"Hammer Of Justice", singer:"Toby Fox", long:"2:18", lirik:"none"},
+
+                {src: "TWR.mp3", name:"The World Revolving", singer:"Toby Fox", long:"1:41", lirik:"none"},
+
+                {src: "Future, Metro Boomin - Like That (Official Audio).mp3", name:"Like That", singer:"Future, Metro Boomin Ft. Kendrick Lamar", long:"4:29", lirik: "idk"},
+
+                {src: "Hindia - anak itu belum pulang.mp3", name:"Anak Itu Belum Pulang", singer:"Hindia", long:"3:36",  lirik:"idk"},
+
+                {src: "karir.mp3", name:"Berdansalah, Karir ini 'Tak ada Artinya", singer:"Hindia", long:"3:44",},
+
+                {src:"Rex Orange County - Best Friend (Official Audio).mp3", name:"Best Friend", singer:"Rex Orange County", long:"4:22"},
+
+                {src:"she & him - i thought i saw your face today (official lyric video).mp3", name:"I Thought I Saw Your Face Today", singer:"She & Him", long:"2:50"},
+
+                {src: "birdbrain.mp3", name:"BirdBrain", singer:"JamieP", long:"4:15"},
+
+                {src: "channel5.mp3", name:"Channel 5 News: The Musical", singer:"Bo Burnham", long:"4:37"},
+
+                {src: "hoar.mp3", name:"Hell Of A ride", singer:"Bo Burnham", long:"4:24",},
+
+                {src: "spokenfor.mp3", name:"Spoken For", singer:"Flavor Foley", long:"4:13",},
+
+                {src: "yousuck.mp3", name:"You Suck <3", singer:"Naethan Apollo", long:"2:52"},
+
+                {src: "The Bird Song.mp3", name:"The Bird Song", singer:"Noah Floerch", long:"3:53"},
+
+                {src: "im doing fine.mp3", name:"I'm Doing Fine", singer:"Marino", long:"1:42"},
+
+                {src: "whats funny.mp3", name:"What's Funny", singer:"Bo Burnham", long:"4:36"},
+
+                {src: "Sarcastic Sounds - Disappointment (Official Video) ft. Rxseboy.mp3", name:"Dissapointment", singer:"Sarcastic Sounds ft. Rxseboy", long:"2:54"},
+
+                {src: "Tarot.mp3", name:"Tarot", singer:".Feast", long:"4:48"},
+
+                {src: "Rät.mp3", name:"Rät", singer:"Penelope Scott", long:"3:14"},
+
+                {src: "amnesia was her name.mp3", name:"Amnesia Was Her Name", singer:"Lemon Demon", long:"4:05"},
+
+                {src: "[rhythm doctor] wish i could care less.mp3", name:"Wish I Could Care Less", singer:"Yeo", long:"1:15"},
+
+                {src: "Diamond Jack.mp3", name:"Diamond Jack", singer:"Connor Spiotto", long:"3:06",},
+
+                {src: "Doodles - Rose Betts.mp3", name:"Doodles", singer:"Rose Betts", long:"2:42"},
+
+                {src: "My Whole Family.mp3", name:"My Whole Family", singer:"Bo Burnham", long:"3:54"},
+
+                {src: "SWEET  I THOUGHT YOU WANTED TO DANCE (Audio).mp3", name:"SWEET / I THOUGHT YOU WANTED TO DANCE", singer:"Tyler, The Creator", long:"9:48"},
+
+                {src: "Talkshow Boy - I Cut Myself.mp3", name:"I Cut Myself (Shaving)", singer:"Talkshow Boy", long:"2:04"},
+
+                {src: "That Funny Feeling -- Bo Burnham (from Inside).mp3", name:"That Funny Feeling", singer:"Bo Burnham", long:"5:07"},
+
+                {src: "The Moss  Flipnote 3D Animation.mp3", name:"The Moss", singer:"Cosmo Shelldrake", long:"3:59"},
+
+                {src: "The Whole World and You (TallyHall Animation).mp3", name:"The Whole World and You", singer:"Tally Hall", long:"1:44"},
+
+                {src: "Welcome to the Internet - Bo Burnham (from Inside -- ALBUM OUT NOW).mp3", name:"Welcome to the Internet", singer:"Bo Burnham", long:"4:40"},
+
+                {src: "Bo Burnham- Kill Yourself lyric video.mp3", name:"Kill Yourself", singer:"Bo Burnham", long:"2:56"},
+
+                {src: "GIMME MONEY GIMME MONEY (Official Music Video).mp3", name:"GIMME MONEY GIMME MONEY", singer:"Oricade", long:"2:11"},
+
+                {src: "GONNA GO GAMBLING (Official Music Video).mp3", name:"Let's Go Gambling", singer:"Oricade", long:"2:32"},
+
+                {src: "Oricade - (Taking) My Whole Life Tonight.mp3", name:"(Taking) My Whole Life Tonight", singer:"Oricade", long:"2:03"},
+
+                {src: "Words, Words, Words (Studio).mp3", name:"Words, Words, Words", singer:"Bo Burnham", long:"4:00"},
+
+                {src: "Ren - Jenny's Tale (Official Music Video).mp3", name:"Jenny's Tale", singer:"Ren", long:"3:10"},
+
+                {src: "Ren - Screech's Tale (Official Music Video).mp3", name:"Screech's Tale", singer:"Ren", long:"4:29"},
+
+                {src: "Ren - Violet's Tale (Official Music Video).mp3", name:"Violet's Tale", singer:"Ren", long:"5:58"},
+
+                {src:"The Chicken - Bo Burnham (from THE INSIDE OUTTAKES - album out now).mp3", name:"The Chicken", singer:"Bo Burnham", long:"3:57"},
+
+                {src:"AJR - Touchy Feely Fool (Official Video).mp3", name:"Touchy Feely Fool", singer:"AJR", long:"3:35"},
+
+                {src:"Everyday Normal Guy 2.mp3", name:"Everyday Normal Guy 2", singer:"Jon Lajoie", long:"3:41"},
+
+                {src:"Hindia - Rumah Ke Rumah (Official Lyric & Commentary Video).mp3", name:"Rumah ke Rumah", singer:"Hindia", long:"4:37",},
+                {src:"Naethan Apollo - Lemon Lime Lips (Official Video).mp3", name:"Lemon Lime Lips", singer:"Naethan Apollo", long:"3:03"},
+                {src:"Imposter Syndrome - Sidney Gish (Lyrics).mp3", name:"Imposter Syndrome", singer:"Sidney Gish", long:"4:48"},
+                {src:"Feast - o,Tuan (Official Lyric Video).mp3", name:"o, Tuan", singer:".feast", long:"5:06"},
+                {src:"I  Me  Myself.mp3", name:"I / Me / Myself", singer:"Will Wood", long:"4:51",},
+                {src: "That Handsome Devil - Charlie's Inferno (Fan Video).mp3", name:"Charlies's inferno", singer:"That Handsome Devil", long:"3:45"},
+                {src: "Hindia - Perkara Tubuh (Official Music Video).mp3", name:"Perkara Tubuh", singer:"Hindia", long:"2:50"},
+                {src: "Hindia - hated in the Nation.mp3", name:"Hated in the Nation", singer:"Hindia", long:"2:35"},
+                {src: "Nonsense Speaker By JubyPhonic.mp3", name:"Nonsense Speaker", singer:"Nekobolo (JubyPhonic English Cover)", long:"4:10"},
+                {src: "Jamiroquai - Virtual Insanity (Official Video).mp3", name:"Virtual Insanity", singer:"Jamiroquai", long:"3:54"},
+                {src: "The Lovin' Spoonful - Do You Believe in Magic (Audio).mp3", name:"Do You Believe in Magic?", singer:"The Lovin' Spoonful", long:"2:07"},
+                {src: "Goodbye.mp3", name:"Goodbye", singer:"Bo Burnham", long:"4:09"},
+                {src: "Look Whos Inside Again.mp3", name:"Look Whos Inside Again", singer:"Bo Burnham", long:"1:23"},
+                {src: "Tamale.mp3", name:"Tamale", singer:"Tyler, The Creator", long:"2:46"},
+                {src: "Her's - Harvey (Official Audio).mp3", name:"Harvey", singer:"Her's", long:"3:31"},
+            ]
+            const looop = document.getElementById('looop')
+            let soundindex = 0
+            let laguindex = null
+            if(audioplayer.paused){
+            a.innerText ="▶";
+            }else if(audioplayer.played){
+            a.innerText ='⏸'  
+            }
+            lop = false
+            function loop(){
+                if(lop){
+                    lop = false
+                    looop.style.backgroundColor = "black";
+                    looop.style.color = "white";
+                }else{
+                    lop = true
+                    looop.style.backgroundColor = "white";
+                    looop.style.color = "black";
+                }
+            }
+            const inputEl = document.querySelector('.input')
+            const bodyEl = document.querySelector('.isi')
+            const utama = document.querySelector('.utama')
+    function createRow(no, name, singer, long) {
+    const tr = document.createElement('tr');
+    tr.className = 'a';
+    tr.setAttribute('onclick', `loadsong(${no-1})`);
+
+    const td1 = document.createElement('td');
+    td1.className = 'num';
+    td1.style.display = 'flex';
+    td1.style.justifyContent = 'center';
+    td1.innerText = no;
+
+    const td2 = document.createElement('td');
+    td2.innerText = name;
+    const td3 = document.createElement('td');
+    td3.innerText = singer;
+    const td4 = document.createElement('td');
+    td4.innerText = long;
+
+
+    
+    tr.append(td1, td2, td3, td4);
+    return tr; 
+    }
+
+    const tbody = document.getElementById('table-body');
+    for (let i = 1; i <= lagu.length; i++) {
+    tbody.appendChild(createRow(i, lagu[i-1].name, lagu[i-1].singer, lagu[i-1].long));
+    }
+    
+
+            function updateBody(){
+                if(bodyEl.style.background != 'black'){
+                    bodyEl.style.background = 'black'
+                    bodyEl.style.color = 'white'
+                    bodyEl.style.border = '2px solid white'
+                    utama.style.background = 'black'
+                    looop.style.border = "2px solid white"
+                    inputEl.checked = true
+                    
+                }else{
+                    bodyEl.style.background = 'lightgray'
+                    bodyEl.style.color = 'black'
+                    bodyEl.style.border = '2px solid black'
+                    utama.style.background = 'gray'
+                    looop.style.border = "none";
+                    inputEl.checked = false
+                }
+            }
+            inputEl.addEventListener('input', () =>{
+                updateBody();
+            });
+
+            function AddStuffToCalc(a){
+                calc_in.innerText += a
+            }
+            function plusseconds(time){
+                if(audioplayer.currentTime + time < audioplayer.duration){
+                    audioplayer.currentTime += time
+                }else{
+                    audioplayer.currentTime = audioplayer.duration
+                }
+            }
+
+            function minseconds(time){
+                if(audioplayer.currentTime - time > 0){
+                    audioplayer.currentTime -= time
+                }else{
+                    audioplayer.currentTime = 0
+                }
+            }
+
+            function randomlagu(){
+                return Math.floor(Math.random() * (lagu.length - 0 + 1)) + 0;
+            }
+            // function load(int){
+            //     pl = int
+            //     if(pl == 0){
+            //         blacky.style.display = 1
+            //         hindia.style.display = none
+            //     }
+            //     else{
+            //         blacky.style.display = none
+            //         hindia.style.display = 1
+            //     }
+            // }
+            var repeat = false
+            function repet(){
+                if(repeat){
+                    repeat = false
+                    hindi.style.backgroundColor = "black";
+            }else{
+                repeat = true
+                hindi.style.backgroundColor = "white";
+            }
+            }
+            function loadsong(index){
+                laguindex = index;
+                audioplayer.pause();
+                // if(playlist == "hindia"){
+                //     audioplayer.src = hindia[index].src
+                // }
+                // else{
+                    audioplayer.src = lagu[index].src;
+                    // lirik.innerText = lagu[index].lirik
+                // }
+                audioplayer.load();
+                audioplayer.play();
+                a.innerText = '⏸'
+            }
+            function loadsound(index){
+                soundboard.pause();
+                soundboard.src = sounds[index].src;
+                soundboard.load();
+                soundboard.play();
+            }
+            function pauseSong(){
+                if (audioplayer.paused && laguindex != null){
+                    audioplayer.play();
+                    a.innerText = '⏸'
+                
+                }else if(laguindex == null){
+                    loadsong(randomlagu())
+                }else{
+                    audioplayer.pause()
+                    a.innerText ="▶";
+                }
+            }
+            function checkRepeat(){
+            const start = parseInt(document.getElementById('start').value)
+            const end = parseInt(document.getElementById('end').value)
+                if (repeat){
+                    audioplayer.play()
+                }
+                else if(lop && laguindex == end-1){
+                        laguindex = start - 1
+                        pilihlagu(laguindex)
+                    }
+                else{
+                nextSong()    
+            }
+        }
+            function nextSong(){
+                laguindex = (laguindex + 1 ) %lagu.length;
+                loadsong(laguindex);
+            }
+            function prevSong(){
+
+                laguindex = (laguindex - 1 + lagu.length) %lagu.length;
+                loadsong(laguindex);
+                // }
+            }
+            function pilihlagu(index){
+                loadsong(index)
+                var playlist = null
+            }
+            function pilihlag(index){
+                var playlist = 'hindia'
+                loadsong(index)
+
+            }
+            // audioplayer.addEventListener('ended',
+            //     if(index)
+            // )
+            document.addEventListener('keydown', (event) => {
+                switch(event.key){
+                    case " ":
+                        pauseSong();
+                        break;
+                    case "ArrowLeft":
+                        minseconds(5);
+                        break;
+                    case "ArrowRight":
+                        plusseconds(5);
+                        break;
+                    case "]":
+                        loadsound(0);
+                        break;
+                    case "r":
+                        repet();
+                        break;
+                    case "l":
+                        plusseconds(10);
+                        break;
+                    case "j":
+                        minseconds(10);
+                        break;
+                    case "1":
+                        AddStuffToCalc("1");
+                        break;
+                    case "2":
+                        AddStuffToCalc("2");
+                        break;
+                    case "3":
+                        AddStuffToCalc("3");
+                        break;
+                    case "4":
+                        AddStuffToCalc("4");
+                        break;
+                    case "5":
+                        AddStuffToCalc("5");
+                        break;
+                    case "6":
+                        AddStuffToCalc("6");
+                        break;
+                    case "7":
+                        AddStuffToCalc("7");
+                        break;
+                    case "8":
+                        AddStuffToCalc("8");
+                        break;
+                    case "9":
+                        AddStuffToCalc("9");
+                        break;
+                    case "0":
+                        AddStuffToCalc("0");
+                        break;
+                    case "+":
+                        AddStuffToCalc(" + ");
+                        break;
+                    case "-":
+                        AddStuffToCalc(" - ");
+                        break;
+                    case "*":
+                        AddStuffToCalc(" * ");
+                        break;
+                    case "/":
+                        AddStuffToCalc(" / ");
+                        break;
+                    case ".":
+                        AddStuffToCalc(".");
+                        break;
+                    case "(":
+                        AddStuffToCalc("(");
+                        break;
+                    case ")":
+                        AddStuffToCalc(")");
+                        break;
+                    case "c":
+                        calc_in.innerText = "";
+                        break;
+                    case "<":
+                        prevSong();
+                        break;
+                    case ">":
+                        nextSong();
+                        break;
+                    case "Backspace":
+                        calc_in.innerText = calc_in.innerText.slice(0,-1);
+                        break;
+                    case "d":
+                        updateBody();
+                        break;
+                    case "=":
+                        try {
+                            calc_out.innerText = parseFloat(eval(calc_in.innerText));
+                        } catch (error) {
+                            calc_out.innerText = "Error"
+                        }
+                        calc_in.innerText = "";
+                        break;
+                }
+            });
+            audioplayer.addEventListener('ended',checkRepeat)
+    </script>
+    </div>
+</div>
+</body>
+</html>

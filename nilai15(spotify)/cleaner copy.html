@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spotify - versi cedric maulana ahmad</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+        .lirik{
+            width: 88%;
+            height: 97vh;
+            margin-top: 1vh;
+            margin-bottom: 2vh;
+            margin-right: 2%;
+            
+            text-align: center;
+        }
+        .utama{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: gray;
+        }
+        .isi{
+            width: 90%;
+            height: 90vh;
+            border-radius: 30px;
+            border: 2px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .kanan{
+            width: 15%;
+            height: 90vh;
+            background-color: white;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+        .tengah{
+            width: 75%;
+            height: 90vh;
+            background-color: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .kiri{
+            width: 25%;
+            height: 90vh;
+            background-color: lightgray;
+            overflow: scroll;
+            display: flex;
+            }
+        .kiri::-webkit-scrollbar,.ctf-song::-webkit-scrollbar{
+            display: none;
+        }
+        
+        .a{
+            border: 1px solid black;
+            width: 100%;
+            height: 2vh
+        }
+
+        .a:hover{
+
+            height: 3vh;
+            background-color: white;
+            cursor: pointer;
+        }
+        .b{
+            width: 100%;
+            background-color: aliceblue;
+            border-radius: 0 0 25px 25px;
+        }
+
+        .c{
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .c button{
+            background-color: black;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 10000000000%;
+            border: 0;
+        }
+        .d{
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: end;
+            background-color: aliceblue;
+            border-radius: 25px 25px 0 0;
+        }
+        .e{
+            width: 33%;
+            display: flex;
+            justify-content: space-around;   
+        }
+        .e button,.f button{
+            
+            color: white;
+            width: 35px;
+            height: 35px;
+        }
+        .f{
+            width: 33%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .h{
+            width: 90%;
+            height: 88vh;
+        }
+        .gambar{
+            width: 80%;
+            height: 30vh;
+            background: linear-gradient(90deg, white,white,black, black, black);
+            margin-left: 3vh;
+            display: flex;
+            justify-content:start;
+            align-items: end;
+        }
+        .gamton{
+            background-color: black;
+            color: white;
+            width: 15%;
+            height: 4vh;
+            border: none;
+            border-radius: 50px;
+        }
+        .g2mton{
+            background-color: white;
+            color: black;
+            width: 15%;
+            height: 4vh;
+            border: black 2px solid;
+            border-radius: 50px;
+            margin-left: 2px;
+        }
+        
+        .cp-tengah{
+            width: 93%;
+            height: 90vh;
+        }
+        .tr-end{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 83%;
+            height: 4vh;
+            
+        }
+        .ctf-song{
+            width: 100%;
+            height: 70vh;
+            overflow: scroll;
+            display: flex;
+            align-items: start;
+            overflow-x: scroll;
+        
+        }
+        .but{
+            /* margin-top: 100px; */
+            width: 100%;
+            height: 50vh;
+            display: flex;
+            justify-content: end;
+            align-items: end;
+        }
+        .button{
+            width: 80%;
+            height: 50vh;
+
+        }
+        .butt{
+            margin-top: 10px;
+            width: 100%;
+            height: 5vh;
+            color: gray;
+            background-color: white;
+            border: none;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .button button :hover{
+            background-color: black;
+            color: white;
+        }
+        .butt:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+
+        .serch{
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+        .serch textarea{
+            width: 70%;
+            border-radius: 0 20px 20px 0;
+            border: none;
+            height: 4.5vh;
+        }
+        .serch button{
+            width: 5%;
+            height: 4.5vh;
+            border-radius: 20px 0 0 20px;
+            border: none;
+            background-color: #fff;
+        }
+        .ab:hover{
+            cursor: pointer;
+        }
+        .h1{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        #kromer{
+            font-size: large;
+            height: 4.5vh;
+            border: none;
+            width: 55vh;
+            border-radius: 0 30px 30px 0;
+        }
+        .table{
+            width: 50%;
+        }
+        .num:hover{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media(max-width : 480px){
+        .kiri{
+            width: 0;
+            height: 0vh;
+            background-color: white;
+            overflow: hidden;
+            display: flex;
+            }
+        .tengah{
+            width: 100%;
+            height: 90vh;
+            background-color: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .c{
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .a:hover{
+            height: 3vh;
+            background-color: lightgrey;
+            cursor: pointer;
+
+        }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="utama">
+        <div class="isi">
+            <!-- <div class="kanan">
+            <button onclick="load(0)" class="butt">blacky mamba</button>
+            <button onclick="load(1)" class="butt">hindia</button>
+            </div> -->
+            <div class="tengah">
+                <div class="cp-tengah">
+                    
+                    
+            
+    
+    <div class="ctf-song">
+    
+    <table class="table" id="hindia">
+        <tr>
+            <th>#</th>
+            <th>title</th>
+            <th>artist</th>
+            <!-- <th>album</th> -->
+            <th>time</th>
+        </tr>
+        
+        
+        <tr class="a" onclick="pilihlag(0)">
+            <td class="num" style="display: flex; justify-content: center;"> 2</td>
+            <td>evakuasi</td>
+            <td>Hindia</td>
+            <!-- <td>menari dengan bayangan</td> -->
+            <td>3:26</td>
+        </tr>
+        <tr class="a" onclick="pilihlag(1)">
+            <td class="num" style="display: flex; justify-content: center;">3</td>
+            <td>evaluasi</td>
+            <td>Hindia</td>
+            <!-- <td>menari dengan bayangan</td> -->
+            <td>3:22</td>
+        </tr>
+        <tr class="a" onclick="pilihlag(2)">
+            <td class="num" style="display: flex; justify-content: center;">6</td>
+            <td>mata air</td>
+            <td>Hindia</td>
+            <!-- <td>menari dengan bayangan</td> -->
+            <td>3:46</td>
+        </tr>
+        <tr class="a" onclick="pilihlag(3)">
+            <td class="num" style="display: flex; justify-content: center;">7</td>
+            <td>jam makan siang</td>
+            <td>Hindia</td>
+            <!-- <td>menari dengan bayangan</td> -->
+            <td>4:42</td>
+        </tr>
+        <tr class="a" onclick="pilihlag(4)">
+            <td class="num" style="display: flex; justify-content: center;">8</td>
+            <td>kita ke sana</td>
+            <td>Hindia</td>
+            <!-- <td>lagipula hidup akan berakhir</td> -->
+            <td>4:42</td>
+        </tr>
+    </table>
+    
+
+    <table class="table" id="lagu">
+        <tr>
+            <th>#</th>
+            <th>title</th>
+            <th>artist</th>
+            <!-- <th>album</th> -->
+            <th>time</th>
+        </tr>
+
+        <tr class="a" onclick="pilihlagu(0)">
+            <td class="num" style="display: flex; justify-content: center;">1</td>
+            <td>medic!</td>
+            <td>valve</td>
+            <!-- <td>tf2</td> -->
+            <td>2:34</td>
+            
+        </tr>
+        
+        <tr class="a" onclick="pilihlagu(1)">
+            <td class="num" style="display: flex; justify-content: center;"> 2</td>
+            <td>evakuasi</td>
+            <td>Hindia</td>
+            <!-- <td>menari dengan bayangan</td> -->
+            <td>3:26</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(2)">
+            <td class="num" style="display: flex; justify-content: center;">3</td>
+            <td>evaluasi</td>
+            <td>Hindia</td>
+            <!-- <td>menari dengan bayangan</td> -->
+            <td>3:22</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(3)">
+            <td class="num" style="display: flex; justify-content: center;">4</td>
+            <td>microwave popcorn</td>
+            <td>BoBurnham</td>
+            <!-- <td>inside</td> -->
+            <td>2:27</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(4)">
+            <td class="num" style="display: flex; justify-content: center;">5</td>
+            <td>soldier of dance</td>
+            <td>valve</td>
+            <!-- <td>tf2</td> -->
+            <td>1:09</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(5)">
+            <td class="num" style="display: flex; justify-content: center;">6</td>
+            <td>mata air</td>
+            <td>Hindia</td>
+            <!-- <td>menari dengan bayangan</td> -->
+            <td>3:46</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(6)">
+            <td class="num" style="display: flex; justify-content: center;">7</td>
+            <td>jam makan siang</td>
+            <td>Hindia</td>
+            <!-- <td>menari dengan bayangan</td> -->
+            <td>4:42</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(7)">
+            <td class="num" style="display: flex; justify-content: center;">8</td>
+            <td>kita ke sana</td>
+            <td>Hindia</td>
+            <!-- <td>lagipula hidup akan berakhir</td> -->
+            <td>4:42</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(8)">
+            <td class="num" style="display: flex; justify-content: center;">9</td>
+            <td>virus</td>
+            <td>beethoven</td>
+            <!-- <td>unknown</td> -->
+            <td>3:40</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(9)">
+            <td class="num" style="display: flex; justify-content: center;">10</td>
+            <td>lose yourself</td>
+            <td>eminem</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>5:20</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(10)">
+            <td class="num" style="display: flex; justify-content: center;">11</td>
+            <td>Big Shot</td>
+            <td>toby fox</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>2:26</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(11)">
+            <td class="num" style="display: flex; justify-content: center; align-items: center;">12</td>
+            <td>black knife</td>
+            <td>foby tox</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>2:01</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(12)">
+            <td class="num" style="display: flex; justify-content: center; align-items: center;">13</td>
+            <td>hammer of justice</td>
+            <td>toby radiation fox</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>2:18</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(13)">
+            <td class="num" style="display: flex; justify-content: center; align-items: center;">14</td>
+            <td>the world revolving</td>
+            <td>tricky toby</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>1:41</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(14)">
+            <td class="num" style="display: flex; justify-content: center; align-items: center;">15</td>
+            <td>Like That</td>
+            <td>Future, Metro Boomin</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>4:29</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(15)">
+            <td class="num" style="display: flex; justify-content: center; align-items: center;">16</td>
+            <td>Anak Itu Belum Pulang</td>
+            <td>Hindia</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>3:36</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(16)">
+            <td class="num" style="display: flex; justify-content: center; align-items: center;">17</td>
+            <td>Berdansalah, Karir Ini Tak Ada Artinya</td>
+            <td>Hindia</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>3:44</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(17)">
+            <td class="num" style="display: flex; justify-content: center; align-items: center;">18</td>
+            <td>Best Friend</td>
+            <td>Rex Orange County</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>4:22</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(18)">
+            <td class="num" style="display: flex; justify-content: center; align-items: center;">19</td>
+            <td>I Thought I Saw Your Face Today</td>
+            <td>She & Him</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>2:50</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(19)">
+            <td class="num" style="display: flex; justify-content: center; align-items: center;">20</td>
+            <td>Birdbrain</td>
+            <td>JamesP</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>4:15:</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(20)">
+            <td class="num" style="display: flex; justify-content: center; align-items: center;">21</td>
+            <td>Channel 5: The Musical</td>
+            <td>Bo Burnham</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>4:37</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(21)">
+            <td class="num" style="display: flex; justify-content: center; align-items: center;">22</td>
+            <td>Hell Of A Ride</td>
+            <td>Bo Burnham</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>4:24</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(22)">
+            <td class="num" style="display: flex; justify-content: center; align-items: center;">23</td>
+            <td>Spoken For</td>
+            <td>Flavour Foley</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>4:13</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(23)">
+            <td class="num" style="display: flex; justify-content: center; align-items: center;">24</td>
+            <td>You Suck &lt;3 </td>
+            <td>Naethan Apollo</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>2:52</td>
+        </tr>
+        <tr class="a" onclick="pilihlagu(24)">
+            <td style="display: flex; justify-content: center; align-items: center;">25</td>
+            <td>The Bird Song</td>
+            <td>forgor</td>
+            <!-- <td>marshallmatherslp</td> -->
+            <td>3:53</td>
+        </tr>
+        
+        
+    </table>
+
+</div>
+    <div class="d">
+    <!-- <div class="e">
+        <button class="ab">🤍</button>
+        <button class="ab">🎵</button>
+        <button class="ab">🔍</button>
+    </div> -->
+    <div class="c">
+    <button class="ab" onclick="prevSong()">⏮</button>
+    <button class="ab"   id="a" onclick="pauseSong()">▶</button>
+    <button class="ab" onclick="nextSong()">⏭</button>
+    <!-- <button>🔃</button> -->
+    </div>
+    <!-- <div class="f">
+        <button class="ab" onclick="repeat()" id="repet">🔁</button>
+        <button class="ab">🔀</button>
+        <button class="ab">🔊</button>
+    </div> -->
+    </div>
+            
+            
+        <audio src="" id="audioplayer" class="b" controls></audio>
+        </div>
+        </div>
+    
+
+
+    <div class="kiri">
+        <div class="lirik" id="lirik">
+        lirik lagu disini   
+    </div>
+</div>
+            </div>
+    </div>
+</div>
+    <script>
+        const lirik = document.getElementById('lirik')
+        const audioplayer = document.getElementById('audioplayer')
+        const a = document.getElementById('a')
+        const blacky = document.querySelector('#lagu')
+        const hindi = document.querySelector('#hindia')
+        const lagu =  [
+            [
+            {src: 'medic!-valve-tf2.mp3', lirik:'tidak ada lirik '},
+
+            {src: 'evakuasi-hindia-menaridenganbayangan.mp3', lirik:'Aku hanya ingin ketenangan Bukan rumah, uang, atau ketenaran Aku hanya butuh ketenangan Ia sangat jauh, hanya angan-angan Aku hanya ingin ketenangan Tanpa kabar panggilan dan pertemuan Aku hanya butuh ketenangan Menghilangkan diri dari keramaian Seribu Tuhan, ini berat Bangun, berpura menjadi kuat Sungguh, semua ini bom waktu Memikul ceritamu, memikul salahku Aku bukan objek validasi Jauhkan diriku dari foto selfie Aku bukan objek imitasi Jangan pakai fotoku di akun pribadi Kau tak akan pernah, mengenaliku Berbicara seakan kau tahu diriku Ku mendoakanmu dari jauh Tak perlu mengirim pesan di ulang tahunmu Seribu Tuhan, ini berat Bangun, berpura menjadi kuat Sungguh, semua ini bom waktu Memikul ceritamu, memikul salahku Sekarang ku pergi, anggap aku mati Selamatkan diri, oh evakuasi Jangan cari aku Siang hari, sore nanti, malam ini Ku menari dengan bayangan diri sendiri Sekarang ku pergi, anggap aku mati Selamatkan diri, oh evakuasi Jangan cari aku Siang hari, sore nanti, malam ini Ku menari dengan bayangan diri sendiri Aku hanya butuh ketenangan Dia sangat jauh, hanya angan-angan Aku hanya butuh ketenangan'},
+
+            {src: 'evaluasi-hindia-menaridenganbayangan.mp3', lirik:'Yang tak bisa terobati Biarlah Mengering sendiri Menghias tubuh dan Yang mengevaluasi Ragamu Hanya kau sendiri Mereka tak mampu Melewat yang telah kau lewati Tiap berganti hari Rintangan yang kau hadapi Masalah yang mengeruh Perasaan yang rapuh Ini belum separuhnya Biasa saja Kamu tak apa Yang selalu ingin ambil peran Hanya berlomba menjadi lebih Sedih dari dirimu Muak dikesampingkan Disamakan Hatimu terluka, sempurna Masalah yang mengeruh Perasaan yang rapuh Ini belum separuhnya Biasa saja Kamu tak apa Perjalanan yang jauh Kau bangun untuk bertaruh Hari belum selesai Biasa saja Kamu tak apa Bilas muka, gosok gigi, evaluasi Tidur sejenak menemui esok pagi Walau pedih ku bersamamu kali ini Ku masih ingin melihatmu esok hari Bilas muka, gosok gigi, evaluasi Tidur sejenak menemui esok pagi Walau pedih ku bersamamu kali ini Ku masih ingin melihatmu esok hari Bilas muka, gosok gigi, evaluasi Tidur sejenak menemui esok pagi Walau pedih ku bersamamu kali ini Ku masih ingin melihatmu esok hari'},
+
+            {src: 'MicrowavePopcorn-boburnham-inside.mp3', lirik:"Could you turn my headphones? Turn up my, or Im the only one in here, so, Im gonna turn up my own headphones For myself, thank you, youre welcome Tryna make microwave popcorn in a microwave I am on that wave, I am on that wave Tryna make microwave popcorn in a microwave I take the packet out the plastic (Takin' out the plastic, brrt) Reading the directions on the back of the package (Ooh) Orville Redenbacher, you're a savage (You a savage) So let's get crackin' (Tryna make microwave, ayy) I put the packet on the glass (What glass?) The little glass dish in the microwave (Got it) I close the door (Which door?) The door to the microwave (What is wrong with you?) You follow all the rules when you're a studious guy (Step one) Insert the packet, set the power to high Cook for one and a half minutes to two and a half minutes (Mm, kind of a wide range) Tryna make microwave popcorn in a microwave (Brrt) I am on that wave, I am on that wave Tryna make microwave popcorn in a microwave The popcorn's done (Thank God) I open up the door, I take it out Ah, goddamn, that's hot, super hot Makes sense (I burnt my fingies) I open up the packet (The packet) It smells smoky and the kernels are black, shit (No) I burned it (No), I burned it (For real?) Yes, for real, do you think you're helping by saying all this? (Tryna make microwave) I'm givin' up (I'm done cookin' popcorn) I'ma eat a bag of Skinny Pop (Bitch, I be hot) I look back at the microwave, wait a minute How'd I miss this button? There's a button and the button says, Popcorn How'd I miss this button? There's a button and the button says, Popcorn (Oh no) On the microwave (There was a button that said popcorn?) I am on that wave, I am on that wave (I shoulda hit that button) Tryna make microwave popcorn (Tryna make microwave) In a microwave (Guys, stop) I am on that wave, I am on that wave (Everyone's talking at the same time, shut up, shut up) Tryna make microwave popcorn"},
+
+            {src: 'soldierofdance.mp3', lirik:'tidak ada lirik'},
+            {src: 'mataair-hindia-menaridenganbayangan.mp3', lirik:"Ah, ah-ah, ah-ahAh-ah-ah, ah-ah, ah-ah Menghabiskan gaji untuk diriku sendiri Membeli satu tiket film terkini Memesan yang cukup hanya untuk satu porsi Menyanyikan Kunto Aji di tengah muda-mudi Semua jatuh bangunmu, hal yang biasa Angan dan pertanyaan, waktu yang menjawabnya Berikan tenggat waktu, bersedihlah secukupnya Rayakan perasaanmu sebagai manusia Jika kau pernah tersakiti, angkat tangan Jika kau pernah menyakiti, angkat tangan Jika kau pernah bahagia, angkat tangan Jika kau pernah kecewa, angkat tangan Jika kau pernah tersakiti, angkat tangan Jika kau pernah menyakiti, angkat tangan Jika kau pernah bahagia, angkat tangan Jika kau pernah kecewa, angkat tangan Hidup bukan untuk saling mendahului Bayangan yang diciptakan oleh mentari Ada kar'na matahari bermaksud terpuji Untukmu, cintai diri sendiri hari ini Jika kau pernah tersakiti, angkat tangan Jika kau pernah menyakiti, angkat tangan (angkat tangan) Jika kau pernah bahagia, angkat tangan (uh-uh-uh) Jika kau pernah kecewa, angkat tangan (Jika kau pernah tersakiti) jika kau pernah tersakiti, angkat tangan Jika kau pernah menyakiti, angkat tangan (angkat tanganmu) Jika kau pernah bahagia, angkat tangan (angkat tangan) Jika kau pernah kecewa, angkat tangan Mata airmu ada di sini (hey, angkat tangan) Mata airmu, diri sendiri (angkat tangan) Temukan makna hidupmu sendiri (angkat tangan) Menarilah dengan bayangan diri sendiri (jika pernah kecewa, angkat tangan) Mata airmu ada di sini (dan jika kau pernah bahagia, angkat tangan) Mata airmu, diri sendiri (jika kau pernah tersakiti, angkat tangan) Temukan makna hidupmu sendiri (dan jika kau pernah menyakiti, angkat tangan) Menarilah dengan bayangan diri sendiri Mata airmu ada di sini (mata airmu ada di sini) Mata airmu, diri sendiri Temukan makna hidupmu sendiri Menarilah dengan bayangan diri sendiri (mata airmu) Mata airmu (mata airmu) ada di sini (ada di sini) Mata airmu (mata airmu), diri sendiri (diri sendiri) Temukan makna (mata airmu) hidupmu sendiri (ada di sini) Menarilah dengan (mata airmu) bayangan diri sendiri"},
+
+            {src: 'jammakansiang-hindia-menaridenganbayangan.mp3', lirik:"Kita manusiaMahluk mulia Kita butuh uang Untuk gali liang Tentang angan-anganku Di jam makan siang Saat semua orang berjuang Di ladang yang gersang Terus m'rasa kurang Haus yang mengiang Siapa yang menang Sosial media jual beli surga Tak ada prospeknya Tak ada uangnya Tanah yang melangit Bumi yang sakit Cukup dirimu yang tau jalannya Boleh berkarya asal hobi saja Cita-cita cinta dipatah keluarga Ketika norma peradatan Terpilih sebagai alasan Semua berkata, Mimpi sewajarnya Tentang angan-anganku Di jam makan siang Saat semua orang berjuang Di ladang yang gersang Terus m'rasa kurang Haus yang mengiang Siapa yang menang Ku di antara gemuruh ragu yang menggetarkan jiwa Seorang manusia yang sedang memimpikan mimpinya Di atas awan yang menderu Melamun, dia belum merasa saatnya terbangun Sedang berlayar tinggi-tingginya Di sini tempatku berlabuh Jalan yang kutempuh dari dulu Satu-satunya yang ku tau Aku cuma bisa jadi aku Hidup tak semudah membalik telapak tangan Tak ada jalan singkat 'tuk menuai yang kau tanam Sadari yang kau cari itu butuh dirancang Kecuali dietmu hanya makanan instan Tentang angan-anganku Di jam makan siang Saat semua orang berjuang Di ladang yang gersang Terus m'rasa kurang Haus yang mengiang Siapa yang menang Kita manusia Mahluk mulia Kita butuh uang Untuk gali liang Kita manusia Mahluk mulia Kita butuh uang Untuk gali liang"},
+
+            {src: 'kitakesana-hindia-lagipulahidupakanberakhir.mp3', lirik:"Rayakan hari iniBesok sisa sengsara Belum pulang, kau pun di sini Temani diriku Kita bersandiwara Bicara tak semestinya Walau kita tahu nyatanya Semua tak baik saja Ada masanya kita Mencuri ruang dan waktu Walau pasti berlalu Biarkan saja Kita ke sana Selagi masih bisa bersama Bersama Semuanya sementara Kita di ujung c'rita Untuk lima menit, coba kau Mengambil alih dunia Ada masanya kita Mencuri ruang dan waktu Walau pasti berlalu Biarkan saja Kita ke sana Selagi masih bisa bersama Ada masanya kita Mencuri ruang dan waktu Walau pasti berlalu Biarkan saja Kita ke sana (kita ke sana) Selama-lamanya (s'lama-lamanya) Selagi masih bisa bersama Bersama, oh-oh-oh Bersama Bersama, oh-oh-oh-oh"},
+
+            {src: 'virus-beethoven-unknown.mp3', lirik:'tidak ada lirik'},
+
+            {src: 'loseyourself-eminem-marshallmatherslp.mp3' , lirik:"Look, if you had one shot, or one opportunityTo seize everything you ever wanted, in one moment Would you capture it, or just let it slip? Yo! His palms are sweaty, knees weak, arms are heavy There's vomit on his sweater already: Mom's spaghetti He's nervous, but on the surface he looks calm and ready To drop bombs, but he keeps on forgetting What he wrote down, the whole crowd goes so loud He opens his mouth, but the words won't come out He's choking, how? Everybody's joking now The clock's run out, time's up, over, blaow! Snap back to reality, ope there goes gravity, ope There goes Rabbit, he choked, he's so mad but he won't Give up that easy, no, he won't have it, he knows His whole back's to these ropes, it don't matter, he's dope He knows that but he's broke, he's so stagnant, he knows When he goes back to this mobile home, that's when it's Back to the lab again yo, this whole rhapsody Better go capture this moment and hope it don't pass him, and You better lose yourself in the music The moment, you own it, you better never let it go You only get one shot, do not miss your chance to blow This opportunity comes once in a lifetime, yo You better lose yourself in the music The moment, you own it, you better never let it go You only get one shot, do not miss your chance to blow This opportunity comes once in a lifetime, yo You better… His soul's escaping through this hole that is gaping This world is mine for the taking, make me king As we move toward a New World Order A normal life is boring; but superstardom's Close to post-mortem, it only grows harder Homie grows hotter, he blows, it's all over These hoes is all on him, coast-to-coast shows He's known as the Globetrotter, lonely roads God only knows, he's grown farther from home, he's no father He goes home and barely knows his own daughter But hold your nose, 'cause here goes the cold water These hoes don't want him no mo', he's cold product They moved on to the next schmoe who flows He nose-dove and sold nada, and so the soap opera Is told, it unfolds, I suppose it's old, partner But the beat goes on: da da dum da dum da da da da You better lose yourself in the music The moment, you own it, you better never let it go You only get one shot, do not miss your chance to blow This opportunity comes once in a lifetime, yo You better lose yourself in the music The moment, you own it, you better never let it go You only get one shot, do not miss your chance to blow This opportunity comes once in a lifetime, yo You better… No more games, I'ma change what you call rage Tear this motherfuckin' roof off like two dogs caged I was playin' in the beginning, the mood all changed I've been chewed up and spit out and booed off stage But I kept rhymin' and stepped right in the next cypher Best believe somebody's payin' the Pied Piper All the pain inside amplified by the Fact that I can't get by with my 9-to-5 And I can't provide the right type of life for my family 'Cause man, these goddamn food stamps don't buy diapers And there's no movie, there's no Mekhi Phifer, this is my life And these times are so hard, and it's gettin' even harder Tryna feed and water my seed, plus teeter-totter Caught up between bein' a father and a prima donna Baby mama drama, screamin' on her, too much for me to wanna Stay in one spot, another day of monotony's Gotten me to the point I'm like a snail, I've got To formulate a plot or end up in jail or shot Success is my only motherfuckin' option, failure's not Mom, I love you, but this trailer's got To go; I cannot grow old in Salem's Lot So here I go, it's my shot: feet, fail me not This may be the only opportunity that I gotYou better lose yourself in the music The moment, you own it, you better never let it go (go) You only get one shot, do not miss your chance to blow This opportunity comes once in a lifetime, yo You better lose yourself in the music The moment, you own it, you better never let it go (go) You only get one shot, do not miss your chance to blow This opportunity comes once in a lifetime, yo You better… You can do anything you set your mind to, man "},
+
+            {src: "BIG_Shot.mp3", lirik:"none"},
+
+            {src: "blckknf.mp3", lirik:"none"},
+
+            {src: "HOJ.mp3", lirik:"none"},
+
+            {src: "TWR.mp3", lirik:"none"},
+
+            {src: "Future, Metro Boomin - Like That (Official Audio).mp3", lirik: "idk"},
+
+            {src: "Hindia - anak itu belum pulang.mp3", lirik:"idk"},
+
+            {src: "karir.mp3"},
+
+            {src:"Rex Orange County - Best Friend (Official Audio).mp3"},
+
+            {src:"she & him - i thought i saw your face today (official lyric video).mp3"},
+
+            {src: "birdbrain.mp3"},
+
+            {src: "channel5.mp3"},
+
+            {src: "hoar.mp3"},
+
+            {src: "spokenfor.mp3"},
+
+            {src: "yousuck.mp3"},
+
+            {src: "The Bird Song.mp3"},
+        ],
+        
+        [
+
+            {src: 'spokenfor.mp3', lirik:'Aku hanya ingin ketenangan Bukan rumah, uang, atau ketenaran Aku hanya butuh ketenangan Ia sangat jauh, hanya angan-angan Aku hanya ingin ketenangan Tanpa kabar panggilan dan pertemuan Aku hanya butuh ketenangan Menghilangkan diri dari keramaian Seribu Tuhan, ini berat Bangun, berpura menjadi kuat Sungguh, semua ini bom waktu Memikul ceritamu, memikul salahku Aku bukan objek validasi Jauhkan diriku dari foto selfie Aku bukan objek imitasi Jangan pakai fotoku di akun pribadi Kau tak akan pernah, mengenaliku Berbicara seakan kau tahu diriku Ku mendoakanmu dari jauh Tak perlu mengirim pesan di ulang tahunmu Seribu Tuhan, ini berat Bangun, berpura menjadi kuat Sungguh, semua ini bom waktu Memikul ceritamu, memikul salahku Sekarang ku pergi, anggap aku mati Selamatkan diri, oh evakuasi Jangan cari aku Siang hari, sore nanti, malam ini Ku menari dengan bayangan diri sendiri Sekarang ku pergi, anggap aku mati Selamatkan diri, oh evakuasi Jangan cari aku Siang hari, sore nanti, malam ini Ku menari dengan bayangan diri sendiri Aku hanya butuh ketenangan Dia sangat jauh, hanya angan-angan Aku hanya butuh ketenangan'},
+
+            // {src: 'evaluasi-hindia-menaridenganbayangan.mp3', lirik:'Yang tak bisa terobati Biarlah Mengering sendiri Menghias tubuh dan Yang mengevaluasi Ragamu Hanya kau sendiri Mereka tak mampu Melewat yang telah kau lewati Tiap berganti hari Rintangan yang kau hadapi Masalah yang mengeruh Perasaan yang rapuh Ini belum separuhnya Biasa saja Kamu tak apa Yang selalu ingin ambil peran Hanya berlomba menjadi lebih Sedih dari dirimu Muak dikesampingkan Disamakan Hatimu terluka, sempurna Masalah yang mengeruh Perasaan yang rapuh Ini belum separuhnya Biasa saja Kamu tak apa Perjalanan yang jauh Kau bangun untuk bertaruh Hari belum selesai Biasa saja Kamu tak apa Bilas muka, gosok gigi, evaluasi Tidur sejenak menemui esok pagi Walau pedih ku bersamamu kali ini Ku masih ingin melihatmu esok hari Bilas muka, gosok gigi, evaluasi Tidur sejenak menemui esok pagi Walau pedih ku bersamamu kali ini Ku masih ingin melihatmu esok hari Bilas muka, gosok gigi, evaluasi Tidur sejenak menemui esok pagi Walau pedih ku bersamamu kali ini Ku masih ingin melihatmu esok hari'},
+
+
+
+
+            // {src: 'mataair-hindia-menaridenganbayangan.mp3', lirik:"Ah, ah-ah, ah-ahAh-ah-ah, ah-ah, ah-ah Menghabiskan gaji untuk diriku sendiri Membeli satu tiket film terkini Memesan yang cukup hanya untuk satu porsi Menyanyikan Kunto Aji di tengah muda-mudi Semua jatuh bangunmu, hal yang biasa Angan dan pertanyaan, waktu yang menjawabnya Berikan tenggat waktu, bersedihlah secukupnya Rayakan perasaanmu sebagai manusia Jika kau pernah tersakiti, angkat tangan Jika kau pernah menyakiti, angkat tangan Jika kau pernah bahagia, angkat tangan Jika kau pernah kecewa, angkat tangan Jika kau pernah tersakiti, angkat tangan Jika kau pernah menyakiti, angkat tangan Jika kau pernah bahagia, angkat tangan Jika kau pernah kecewa, angkat tangan Hidup bukan untuk saling mendahului Bayangan yang diciptakan oleh mentari Ada kar'na matahari bermaksud terpuji Untukmu, cintai diri sendiri hari ini Jika kau pernah tersakiti, angkat tangan Jika kau pernah menyakiti, angkat tangan (angkat tangan) Jika kau pernah bahagia, angkat tangan (uh-uh-uh) Jika kau pernah kecewa, angkat tangan (Jika kau pernah tersakiti) jika kau pernah tersakiti, angkat tangan Jika kau pernah menyakiti, angkat tangan (angkat tanganmu) Jika kau pernah bahagia, angkat tangan (angkat tangan) Jika kau pernah kecewa, angkat tangan Mata airmu ada di sini (hey, angkat tangan) Mata airmu, diri sendiri (angkat tangan) Temukan makna hidupmu sendiri (angkat tangan) Menarilah dengan bayangan diri sendiri (jika pernah kecewa, angkat tangan) Mata airmu ada di sini (dan jika kau pernah bahagia, angkat tangan) Mata airmu, diri sendiri (jika kau pernah tersakiti, angkat tangan) Temukan makna hidupmu sendiri (dan jika kau pernah menyakiti, angkat tangan) Menarilah dengan bayangan diri sendiri Mata airmu ada di sini (mata airmu ada di sini) Mata airmu, diri sendiri Temukan makna hidupmu sendiri Menarilah dengan bayangan diri sendiri (mata airmu) Mata airmu (mata airmu) ada di sini (ada di sini) Mata airmu (mata airmu), diri sendiri (diri sendiri) Temukan makna (mata airmu) hidupmu sendiri (ada di sini) Menarilah dengan (mata airmu) bayangan diri sendiri"},
+
+            // {src: 'jammakansiang-hindia-menaridenganbayangan.mp3', lirik:"Kita manusiaMahluk mulia Kita butuh uang Untuk gali liang Tentang angan-anganku Di jam makan siang Saat semua orang berjuang Di ladang yang gersang Terus m'rasa kurang Haus yang mengiang Siapa yang menang Sosial media jual beli surga Tak ada prospeknya Tak ada uangnya Tanah yang melangit Bumi yang sakit Cukup dirimu yang tau jalannya Boleh berkarya asal hobi saja Cita-cita cinta dipatah keluarga Ketika norma peradatan Terpilih sebagai alasan Semua berkata, Mimpi sewajarnya Tentang angan-anganku Di jam makan siang Saat semua orang berjuang Di ladang yang gersang Terus m'rasa kurang Haus yang mengiang Siapa yang menang Ku di antara gemuruh ragu yang menggetarkan jiwa Seorang manusia yang sedang memimpikan mimpinya Di atas awan yang menderu Melamun, dia belum merasa saatnya terbangun Sedang berlayar tinggi-tingginya Di sini tempatku berlabuh Jalan yang kutempuh dari dulu Satu-satunya yang ku tau Aku cuma bisa jadi aku Hidup tak semudah membalik telapak tangan Tak ada jalan singkat 'tuk menuai yang kau tanam Sadari yang kau cari itu butuh dirancang Kecuali dietmu hanya makanan instan Tentang angan-anganku Di jam makan siang Saat semua orang berjuang Di ladang yang gersang Terus m'rasa kurang Haus yang mengiang Siapa yang menang Kita manusia Mahluk mulia Kita butuh uang Untuk gali liang Kita manusia Mahluk mulia Kita butuh uang Untuk gali liang"},
+
+            // {src: 'kitakesana-hindia-lagipulahidupakanberakhir.mp3', lirik:"Rayakan hari iniBesok sisa sengsara Belum pulang, kau pun di sini Temani diriku Kita bersandiwara Bicara tak semestinya Walau kita tahu nyatanya Semua tak baik saja Ada masanya kita Mencuri ruang dan waktu Walau pasti berlalu Biarkan saja Kita ke sana Selagi masih bisa bersama Bersama Semuanya sementara Kita di ujung c'rita Untuk lima menit, coba kau Mengambil alih dunia Ada masanya kita Mencuri ruang dan waktu Walau pasti berlalu Biarkan saja Kita ke sana Selagi masih bisa bersama Ada masanya kita Mencuri ruang dan waktu Walau pasti berlalu Biarkan saja Kita ke sana (kita ke sana) Selama-lamanya (s'lama-lamanya) Selagi masih bisa bersama Bersama, oh-oh-oh Bersama Bersama, oh-oh-oh-oh"},
+        ]]
+        var playlist
+        let laguindex = 0
+        if(audioplayer.paused){
+        a.innerText ="▶";
+        }else if(audioplayer.played){
+          a.innerText ='⏸'  
+        }
+
+        // function load(int){
+        //     pl = int
+        //     if(pl == 0){
+        //         blacky.style.display = 1
+        //         hindia.style.display = none
+        //     }
+        //     else{
+        //         blacky.style.display = none
+        //         hindia.style.display = 1
+        //     }
+        // }
+
+        function loadsong(index){
+            laguindex = index;
+            audioplayer.pause();
+            audioplayer.src = lagu[playlist][index].src;
+            lirik.innerText = lagu[playlist][index].lirik
+            audioplayer.load();
+            audioplayer.play();
+            a.innerText = '⏸'
+        }
+        function pauseSong(){
+            if (audioplayer.paused){
+                audioplayer.play();
+                a.innerText = '⏸'
+
+            }else{
+                audioplayer.pause()
+                a.innerText ="▶";
+            }
+        }
+        var repeat = false
+        function repeat(){
+
+                addEventListener('ended',currentTime = 0)
+        }
+        function nextSong(){
+            laguindex = (laguindex + 1 ) %lagu[playlist].length;
+            loadsong(laguindex);
+        }
+        function prevSong(){
+            laguindex = (laguindex - 1 + lagu[playlist].length) %lagu[playlist].length;
+            loadsong(laguindex);
+        }
+        function pilihlagu(index){
+            playlist = 0
+            loadsong(index)
+        }
+        function pilihlag(index){
+            playlist = 1
+            loadsong(index)
+
+        }
+        audioplayer.addEventListener('ended',nextSong)
+    </script>
+    </div>
+</div>
+</body>
+</html>
